@@ -1,5 +1,7 @@
 {
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "strict": true,
     "module": "esnext",
@@ -9,7 +11,10 @@
     "baseUrl": "./",
     "skipLibCheck": true,
     "declaration": false,
-    "lib": ["esnext","dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
@@ -22,11 +27,16 @@
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "*": ["src/*", "node_modules/*"]
+      "*": [
+        "src/*",
+        "node_modules/*"
+      ]
     },
   },
   "typedocOptions": {
-    "inputFiles": ["./src/index.d.ts"],
+    "inputFiles": [
+      "./src/index.d.ts"
+    ],
     "mode": "file",
     "json": "typedoc.json",
     "excludeExternals": true,

@@ -1,11 +1,10 @@
-import clsx from 'clsx';
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
+import SnackbarContainer from 'SnackbarContainer';
 import { OptionsObject, ProviderContext, RequiredBy, SnackbarKey, SnackbarMessage, SnackbarProviderProps, TransitionHandlerProps } from '.';
-import SnackbarContainer from './SnackbarContainer';
 import SnackbarContext from './SnackbarContext';
 import SnackbarItem from './SnackbarItem';
-import { DEFAULTS, isDefined, merge, MESSAGES, originKeyExtractor, REASONS, transformer } from './utils/constants';
+import { DEFAULTS, isDefined, merge, MESSAGES, originKeyExtractor, REASONS } from './utils/constants';
 import createChainedFunction from './utils/createChainedFunction';
 import warning from './utils/warning';
 
@@ -271,12 +270,7 @@ class SnackbarProvider extends Component<SnackbarProviderProps, State> {
 		const snackbars = Object.keys(categ).map((origin) => {
 			const snacks = categ[origin];
 			return (
-				<SnackbarContainer
-					key={origin}
-					dense={dense}
-					anchorOrigin={snacks[0].anchorOrigin}
-					className={clsx(classes.containerRoot, classes[transformer.toContainerAnchorOrigin(origin)])}
-				>
+				<SnackbarContainer key={origin} dense={dense} anchorOrigin={snacks[0].anchorOrigin}>
 					{snacks.map((snack) => (
 						<SnackbarItem
 							{...props}
