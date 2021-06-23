@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import SnackbarContainer from 'SnackbarContainer';
 import { OptionsObject, ProviderContext, RequiredBy, SnackbarKey, SnackbarMessage, SnackbarProviderProps, TransitionHandlerProps } from '.';
+import SnackbarContainer from './SnackbarContainer';
 import SnackbarContext from './SnackbarContext';
 import SnackbarItem from './SnackbarItem';
 import { DEFAULTS, isDefined, merge, MESSAGES, originKeyExtractor, REASONS } from './utils/constants';

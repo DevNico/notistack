@@ -7,11 +7,10 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var reactDom = require('react-dom');
-var SnackbarContainer = _interopDefault(require('SnackbarContainer'));
 var react = require('@emotion/react');
-var Collapse = _interopDefault(require('@material-ui/core/Collapse'));
 var styles = require('@material-ui/core/styles');
 var Slide = _interopDefault(require('@material-ui/core/Slide'));
+var Collapse = _interopDefault(require('@material-ui/core/Collapse'));
 var SvgIcon = _interopDefault(require('@material-ui/core/SvgIcon'));
 var ClickAwayListener = _interopDefault(require('@material-ui/core/ClickAwayListener'));
 var hoistNonReactStatics = _interopDefault(require('hoist-non-react-statics'));
@@ -80,23 +79,18 @@ function _taggedTemplateLiteralLoose(strings, raw) {
   return strings;
 }
 
-var SnackbarContext = /*#__PURE__*/React__default.createContext();
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-wrap: flex;\n\tflex-grow: 1;\n\n\t", " {\n\t\tflex-grow: initial;\n\t\tmin-width: 288;\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var SnackbarContent = /*#__PURE__*/styles.styled('div')( /*#__PURE__*/_templateObject(), function (props) {
-  return props.theme.breakpoints.up('sm');
-});
-
 var MESSAGES = {
   NO_PERSIST_ALL: "WARNING - notistack: Reached maxSnack while all enqueued snackbars have 'persist' flag. Notistack will dismiss the oldest snackbar anyway to allow other ones in the queue to be presented."
+};
+var SNACKBAR_INDENTS = {
+  view: {
+    "default": 20,
+    dense: 4
+  },
+  snackbar: {
+    "default": 6,
+    dense: 2
+  }
 };
 var DEFAULTS = {
   maxSnack: 3,
@@ -161,6 +155,114 @@ function objectMerge(options, props, defaults) {
 
   return _extends({}, defaults, {}, props, {}, options);
 }
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteralLoose(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tmax-height: 100%;\n\tposition: fixed;\n\tz-index: ", ";\n\theight: auto;\n\twidth: auto;\n\ttransition: top 300ms ease 0ms, right 300ms ease 0ms, bottom 300ms ease 0ms, left 300ms ease 0ms, margin 300ms ease 0ms, max-width 300ms ease 0ms;\n\t// container itself is invisible and should not block clicks, clicks should be passed to its children\n\tpointer-events: 'none';\n\n\t", " {\n\t\tpointer-events: 'all';\n\t}\n\t", " {\n\t\tpadding: ", "px 0px;\n\t\ttransition: padding 300ms ease 0ms;\n\t}\n\n\tmax-width: calc(100% - ", "px);\n\n\t", " {\n\t\twidth: 100%;\n\t\tmax-width: calc(100% - ", "px);\n\t}\n\n\t", "\n\n\t", "\n\t", "\n\t", "\n\t", "\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n\tright: ", ";\n\t", " {\n\t\talign-items: flex-end;\n\t}\n\t", " {\n\t\tright: ", "px;\n\t}\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n\tleft: ", ";\n\t", " {\n\t\talign-items: flex-start;\n\t}\n\t", " {\n\t\tleft: ", "px;\n\t}\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteralLoose(["\n\tbottom: ", ";\n\tflex-direction: column-reverse;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n\ttop: ", ";\n\tflex-direction: column;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n\t", " {\n\t\tpadding: ", "px 0px;\n\t}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var collapse = {
+  container: '& > .MuiCollapse-container',
+  wrapper: '& > .MuiCollapse-container > .MuiCollapse-wrapper'
+};
+var xsWidthMargin = 16;
+var rootDense = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject(), collapse.wrapper, SNACKBAR_INDENTS.snackbar.dense);
+var top = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject2(), SNACKBAR_INDENTS.view["default"] - SNACKBAR_INDENTS.snackbar["default"]);
+var bottom = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject3(), SNACKBAR_INDENTS.view["default"] - SNACKBAR_INDENTS.snackbar["default"]);
+
+var left = function left(theme) {
+  return react.css(_templateObject4(), SNACKBAR_INDENTS.view["default"], theme.breakpoints.up('sm'), theme.breakpoints.down('xs'), xsWidthMargin);
+};
+
+var right = function right(theme) {
+  return react.css(_templateObject5(), SNACKBAR_INDENTS.view["default"], theme.breakpoints.up('sm'), theme.breakpoints.down('xs'), xsWidthMargin);
+};
+
+var SnackbarContainer = /*#__PURE__*/styles.styled('div')( /*#__PURE__*/_templateObject6(), function (props) {
+  return props.theme.zIndex.snackbar;
+}, collapse.container, collapse.wrapper, SNACKBAR_INDENTS.snackbar["default"], SNACKBAR_INDENTS.view["default"] * 2, function (props) {
+  return props.theme.breakpoints.down('xs');
+}, xsWidthMargin * 2, function (props) {
+  return props.dense && rootDense;
+}, function (props) {
+  return props.anchorOrigin.vertical === 'top' && top;
+}, function (props) {
+  return props.anchorOrigin.horizontal === 'right' && right(props.theme);
+}, function (props) {
+  return props.anchorOrigin.vertical === 'bottom' && bottom;
+}, function (props) {
+  return props.anchorOrigin.horizontal === 'left' && left(props.theme);
+});
+var SnackbarContainer$1 = /*#__PURE__*/React__default.memo(SnackbarContainer);
+
+var SnackbarContext = /*#__PURE__*/React__default.createContext();
+
+function _templateObject$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-wrap: flex;\n\tflex-grow: 1;\n\n\t", " {\n\t\tflex-grow: initial;\n\t\tmin-width: 288;\n\t}\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var SnackbarContent = /*#__PURE__*/styles.styled('div')( /*#__PURE__*/_templateObject$1(), function (props) {
+  return props.theme.breakpoints.up('sm');
+});
 
 /**
  * @link https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/utils/createChainedFunction.js
@@ -396,75 +498,75 @@ function _templateObject7() {
   return data;
 }
 
-function _templateObject6() {
+function _templateObject6$1() {
   var data = _taggedTemplateLiteralLoose(["\n\tbackground-color: #ff9800; // amber\n\tcolor: #fff;\n"]);
 
-  _templateObject6 = function _templateObject6() {
+  _templateObject6$1 = function _templateObject6() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject5() {
+function _templateObject5$1() {
   var data = _taggedTemplateLiteralLoose(["\n\tbackground-color: #2196f3; // nice blue\n\tcolor: #fff;\n"]);
 
-  _templateObject5 = function _templateObject5() {
+  _templateObject5$1 = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4() {
+function _templateObject4$1() {
   var data = _taggedTemplateLiteralLoose(["\n\tbackground-color: #d32f2f; // dark red\n\tcolor: #fff;\n"]);
 
-  _templateObject4 = function _templateObject4() {
+  _templateObject4$1 = function _templateObject4() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject3() {
+function _templateObject3$1() {
   var data = _taggedTemplateLiteralLoose(["\n\tbackground-color: #43a047; // green\n\tcolor: #fff;\n"]);
 
-  _templateObject3 = function _templateObject3() {
+  _templateObject3$1 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2() {
+function _templateObject2$1() {
   var data = _taggedTemplateLiteralLoose(["\n\t", ";\n\tbackground-color: ", ";\n\t", "\n"]);
 
-  _templateObject2 = function _templateObject2() {
+  _templateObject2$1 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$1() {
+function _templateObject$2() {
   var data = _taggedTemplateLiteralLoose(["\n\tposition: relative;\n\ttransform: translateX(0);\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\tleft: 0;\n"]);
 
-  _templateObject$1 = function _templateObject() {
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var contentRoot = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject$1());
-var StyledSnackbar = /*#__PURE__*/styles.styled(Snackbar)( /*#__PURE__*/_templateObject2(), function (props) {
+var contentRoot = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject$2());
+var StyledSnackbar = /*#__PURE__*/styles.styled(Snackbar)( /*#__PURE__*/_templateObject2$1(), function (props) {
   return props.theme.typography.body2;
 }, function (props) {
   return styles.emphasize(props.theme.palette.background["default"], (props.theme.palette.mode || props.theme.palette.type) === 'light' ? 0.8 : 0.98);
 }, contentRoot);
-var variantSuccess = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject3());
-var variantError = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject4());
-var variantInfo = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject5());
-var variantWarning = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject6());
+var variantSuccess = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject3$1());
+var variantError = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject4$1());
+var variantInfo = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject5$1());
+var variantWarning = /*#__PURE__*/react.css( /*#__PURE__*/_templateObject6$1());
 var StyledSnackbarContent = /*#__PURE__*/styles.styled(SnackbarContent)( /*#__PURE__*/_templateObject7(), contentRoot, function (props) {
   return props.lessPadding && "padding-left: " + 8 * 2.5 + "px;";
 }, function (props) {
@@ -896,7 +998,7 @@ var SnackbarProvider = /*#__PURE__*/function (_Component) {
     }, {});
     var snackbars = Object.keys(categ).map(function (origin) {
       var snacks = categ[origin];
-      return React__default.createElement(SnackbarContainer, {
+      return React__default.createElement(SnackbarContainer$1, {
         key: origin,
         dense: dense,
         anchorOrigin: snacks[0].anchorOrigin
