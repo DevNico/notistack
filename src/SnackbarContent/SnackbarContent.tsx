@@ -8,7 +8,7 @@ const SnackbarContent = styled('div')<SnackbarContentProps>`
 
 	${(props) => props.theme.breakpoints.up('sm')} {
 		flex-grow: initial;
-		min-width: 288;
+		min-width: 288px;
 	}
 `;
 

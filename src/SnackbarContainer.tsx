@@ -62,10 +62,10 @@ const SnackbarContainer = styled('div')<SnackbarContainerProps>`
 	width: auto;
 	transition: top 300ms ease 0ms, right 300ms ease 0ms, bottom 300ms ease 0ms, left 300ms ease 0ms, margin 300ms ease 0ms, max-width 300ms ease 0ms;
 	// container itself is invisible and should not block clicks, clicks should be passed to its children
-	pointer-events: 'none';
+	pointer-events: none;
 
 	${collapse.container} {
-		pointer-events: 'all';
+		pointer-events: all;
 	}
 	${collapse.wrapper} {
 		padding: ${SNACKBAR_INDENTS.snackbar.default}px 0px;
