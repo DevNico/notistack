@@ -23,17 +23,17 @@ const rootDense = css`
 `;
 
 const top = css`
-	top: ${SNACKBAR_INDENTS.view.default - SNACKBAR_INDENTS.snackbar.default};
+	top: ${SNACKBAR_INDENTS.view.default - SNACKBAR_INDENTS.snackbar.default}px;
 	flex-direction: column;
 `;
 
 const bottom = css`
-	bottom: ${SNACKBAR_INDENTS.view.default - SNACKBAR_INDENTS.snackbar.default};
+	bottom: ${SNACKBAR_INDENTS.view.default - SNACKBAR_INDENTS.snackbar.default}px;
 	flex-direction: column-reverse;
 `;
 
 const left = (theme: Theme) => css`
-	left: ${SNACKBAR_INDENTS.view.default};
+	left: ${SNACKBAR_INDENTS.view.default}px;
 	${theme.breakpoints.up('sm')} {
 		align-items: flex-start;
 	}
@@ -43,7 +43,7 @@ const left = (theme: Theme) => css`
 `;
 
 const right = (theme: Theme) => css`
-	right: ${SNACKBAR_INDENTS.view.default};
+	right: ${SNACKBAR_INDENTS.view.default}px;
 	${theme.breakpoints.up('sm')} {
 		align-items: flex-end;
 	}

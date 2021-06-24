@@ -160,7 +160,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteralLoose(["\n\tright: ", ";\n\t", " {\n\t\talign-items: flex-end;\n\t}\n\t", " {\n\t\tright: ", "px;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tright: ", "px;\n\t", " {\n\t\talign-items: flex-end;\n\t}\n\t", " {\n\t\tright: ", "px;\n\t}\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -170,7 +170,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n\tleft: ", ";\n\t", " {\n\t\talign-items: flex-start;\n\t}\n\t", " {\n\t\tleft: ", "px;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tleft: ", "px;\n\t", " {\n\t\talign-items: flex-start;\n\t}\n\t", " {\n\t\tleft: ", "px;\n\t}\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -180,7 +180,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n\tbottom: ", ";\n\tflex-direction: column-reverse;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tbottom: ", "px;\n\tflex-direction: column-reverse;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -190,7 +190,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttop: ", ";\n\tflex-direction: column;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttop: ", "px;\n\tflex-direction: column;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
